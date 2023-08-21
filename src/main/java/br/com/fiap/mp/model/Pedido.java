@@ -1,9 +1,16 @@
 package br.com.fiap.mp.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
+@Table(name="pedido")
 public class Pedido {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nomeProduto, urlProduto, urlImage, urlImage2, descricao;
     private BigDecimal valorNegociado;
     private LocalDate dataDaEntrega;
@@ -61,5 +68,13 @@ public class Pedido {
 
     public void setDataDaEntrega(LocalDate dataDaEntrega) {
         this.dataDaEntrega = dataDaEntrega;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
